@@ -1,4 +1,5 @@
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
@@ -51,11 +52,11 @@ public class main {
                 for (int i = 1; i < argv.length / 2 + 1; i++) {
                     if (move + i - 1 == step) {
                         System.out.println("Your move:" + argv[move - 1] + "\nComputer move:" +
-                                argv[step] + "\nYou lose\nHMac key: " + key);
+                                argv[step] + "\nYou lose\nHMac key: " + String.format("%032X", new BigInteger(1, key)));
                         return 1;
                     } else if (i == argv.length / 2) {
                         System.out.println("Your move:" + argv[move - 1] + "\nComputer move:" +
-                                argv[step] + "\nYou win!\nHMac key: " + key);
+                                argv[step] + "\nYou win!\nHMac key: " + String.format("%032X", new BigInteger(1, key)));
                         return 1;
                     }
                 }
